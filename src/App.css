@@ -1,16 +1,13 @@
+@import "~antd/dist/antd.css";
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  background-position: center center;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("./Assets/Images/bg_summer.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .App-header {
@@ -27,12 +24,6 @@
 .App-link {
   color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app_body{
+  min-height: 100vh;
 }

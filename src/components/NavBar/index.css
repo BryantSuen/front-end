@@ -1,0 +1,23 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  padding: .2rem;
+  overflow: hidden;
+  height: 3rem;
+  border-bottom: 1px solid #ccc;
+  z-index: 99;
+}
+
+.nav-logo {
+  color: #1e90ff;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.nav-text{
+  font-size: 0.6rem;
+  color: #999;
+  display: inline-block;
+  padding: 0.3rem;
+}
