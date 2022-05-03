@@ -53,5 +53,5 @@ jobs:
       - name: build and deploy image
         shell: bash
         run: |
-          docker build -t brerudike/web:latest .
-          docker push brerudike/web:latest
+          docker build -t brerudike/front-end:latest .
+          docker push brerudike/front-end:latest
