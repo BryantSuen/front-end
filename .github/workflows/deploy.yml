@@ -35,11 +35,9 @@ jobs:
 
       - name: test
         run: |
-          yarn lint
           yarn typecheck
           yarn test
           yarn build
-          yarn bundlesize
 
   deploy:
     needs: test
