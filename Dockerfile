@@ -1,12 +1,10 @@
-FROM node:16 AS builder
+FROM node:16-alpine AS builder
 
 WORKDIR /home/node/app
 
-COPY package.json yarn.lock ./
+COPY . /home/node/app
 
-RUN yarn install --frozen-lockfile --no-cache
-
-COPY . .
+RUN yarn install --frozen-lockfile --no-cache --silent
 
 RUN yarn build
 
