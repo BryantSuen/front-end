@@ -8,15 +8,12 @@ RUN yarn install --frozen-lockfile --no-cache --silent
 
 RUN yarn build
 
+# nginx
+FROM nginx:1.21.6-alpine
+COPY --from=builder /home/node/app/build /usr/share/nginx/html
 
-FROM node:16-alpine
-ENV NODE_ENV=production
-WORKDIR /home/node/app
-
-RUN yarn global add serve
-
-COPY --from=builder /home/node/app/build ./build
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 23333
 
-CMD serve -s build -p 23333
+CMD [ "nginx", "-g", "daemon-off" ]
