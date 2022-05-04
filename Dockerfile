@@ -12,7 +12,7 @@ RUN yarn build
 FROM nginx:1.21.6-alpine
 COPY --from=builder /home/node/app/build /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d
 
 EXPOSE 23333
 
