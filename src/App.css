@@ -4,10 +4,6 @@
   margin: 0;
   width: 100%;
   min-height: 100vh;
-  background-image: url("./Assets/Images/bg_summer.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .App-header {
@@ -24,6 +20,6 @@
 .App-link {
   color: #61dafb;
 }
-.app_body{
+.App_body{
   min-height: 100vh;
 }

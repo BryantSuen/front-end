@@ -1,0 +1,7 @@
+.page {
+  height: 80%;
+  background-image: url("../../Assets/Images/bg_summer.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

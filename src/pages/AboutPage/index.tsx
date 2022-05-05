@@ -28,15 +28,15 @@ const AboutPage: React.FC = () => {
   const text =
     "# About Me\n Hi, I'm Bryantsuen, undergraduate in Tsinghua University.\n\n Electronic Engineering Department\n\n Let's make EE hard Again!";
   return (
-    <div>
+    <div className={styles.page}>
       {/* <div className={styles.content}> */}
       <Row justify="center" align="top">
         <Col
           className={styles.left_text}
-          xs={24}
-          sm={24}
+          xs={20}
+          sm={20}
           md={16}
-          lg={18}
+          lg={14}
           xl={14}
         >
           <div>
@@ -59,7 +59,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </Col>
-        <Col className={styles.right_card} xs={0} sm={0} md={0} lg={5} xl={4}>
+        <Col className={styles.right_card} xs={0} sm={0} md={0} lg={4} xl={4}>
           <div className={styles.profile}>
             <Avatar src={AvatarImage} size={96} />
             <h2>BryantSuen</h2>
