@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
+import RequireAuth from "./components/RequiredAuth";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import NavBar from "./components/NavBar";
@@ -17,7 +18,15 @@ const App: React.FC = () => {
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/admin/*" element={<AdminPage />} />
+          <Route
+            path="/admin/*"
+            element={
+              // <RequireAuth>
+              //   <AdminPage />
+              // </RequireAuth>
+              <AdminPage/>
+            }
+          />
           <Route path="/unauthed" element={<PermissionDeniedPage />} />
           <Route path="/*" element={<NotfoundPage />} />
         </Routes>

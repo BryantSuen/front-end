@@ -9,6 +9,8 @@ import styles from "./index.module.css";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import PublishPage from "./PublishPage";
 import IntroPage from "./IntroPage";
+import ArticlePage from "./ArticlePage";
+import LabelPage from "./LabelPage";
 
 const { Sider } = Layout;
 
@@ -39,7 +41,7 @@ const AdminPage: React.FC = () => {
 
   return (
     <Layout className={styles.bg}>
-      <Sider width={200} className={styles.sider}>
+      <Sider width={180} className={styles.sider} theme="light">
         <Menu
           mode="inline"
           defaultSelectedKeys={["1"]}
@@ -47,7 +49,12 @@ const AdminPage: React.FC = () => {
           defaultOpenKeys={["sub1"]}
           style={{ height: "100%", borderRight: 0 }}
         >
-          <Menu.Item key="articles">articles</Menu.Item>
+          <Menu.Item key="articles">
+            <Link to="/admin/articles">article</Link>
+          </Menu.Item>
+          <Menu.Item key="label">
+            <Link to="/admin/label">label</Link>
+          </Menu.Item>
           <Menu.Item key="publish">
             <Link to="/admin/publish">publish</Link>
           </Menu.Item>
@@ -60,6 +67,8 @@ const AdminPage: React.FC = () => {
         <Routes>
           <Route path="/publish" element={<PublishPage />} />
           <Route path="/intro" element={<IntroPage />} />
+          <Route path="/articles" element={<ArticlePage />} />
+          <Route path="/label" element={<LabelPage />} />
         </Routes>
       </div>
     </Layout>
