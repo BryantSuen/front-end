@@ -10,6 +10,7 @@ import AdminPage from "./pages/AdminPage";
 import NotfoundPage from "./pages/NotfoundPage";
 import PermissionDeniedPage from "./pages/PermissionDeniedPage";
 import ArticlePage from "./pages/ArticlePage";
+import LoginPage from "./pages/LoginPage";
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path="/home" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/articles" element={<ArticlePage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route
             path="/admin/*"
             element={

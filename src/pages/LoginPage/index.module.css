@@ -1,7 +1,15 @@
 .page {
-  height: 80%;
+  min-height: 100vh;
   background-image: url("../../Assets/Images/bg_summer.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.Card{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10vh
 }
