@@ -5,7 +5,6 @@ import { Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
 import PublishPage from "./PublishPage";
 import IntroPage from "./IntroPage";
 import ArticlePage from "./ArticlePage";
-import LabelPage from "./LabelPage";
 
 const { Sider } = Layout;
 
@@ -25,9 +24,6 @@ const AdminPage: React.FC = () => {
           <Menu.Item key="articles">
             <Link to="/admin/articles">article</Link>
           </Menu.Item>
-          <Menu.Item key="label">
-            <Link to="/admin/label">label</Link>
-          </Menu.Item>
           <Menu.Item key="publish">
             <Link to="/admin/publish">publish</Link>
           </Menu.Item>
@@ -42,7 +38,6 @@ const AdminPage: React.FC = () => {
           <Route path="/publish" element={<PublishPage />} />
           <Route path="/intro" element={<IntroPage />} />
           <Route path="/articles" element={<ArticlePage />} />
-          <Route path="/label" element={<LabelPage />} />
         </Routes>
       </div>
     </Layout>

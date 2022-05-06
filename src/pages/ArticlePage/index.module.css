@@ -1,0 +1,59 @@
+.page {
+    position: relative;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  .content {
+    min-height: 70vh;
+    padding: 24px;
+    margin: 0 0 20px 300px;
+    padding: 64px 120px;
+    background-color: #fff;
+    opacity: 0.95;
+  }
+  .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 0 16px 16px 0;
+  }
+  
+  .card {
+    min-height: 500px;
+    opacity: 100%;
+    padding: 0 50px;
+    background: #fff;
+    opacity: 0;
+  }
+  
+  .left_text {
+    background-color: #fff;
+    padding: 3rem;
+    margin: 1rem 2rem;
+    border-radius: 0.5rem;
+    border-bottom: 1px solid #eee;
+    min-height: 70vh;
+  }
+  
+  .right_card {
+    background-color: #fff;
+    margin: 1rem 0.5rem;
+    padding: 1.5rem;
+    border-radius: 0.3rem;
+    border: 2px solid #eee;
+  }
+  .profile {
+    text-align: center;
+  }
+  
+  .calendar {
+    width: 300px;
+    border: 1px solid #f0f0f0;
+    border-radius: 2px;
+  }
+  /* .ant-row-rtl #components-layout-demo-top .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+  } */
+  
