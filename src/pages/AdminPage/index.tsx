@@ -1,12 +1,7 @@
 import React from "react";
-import { Layout, Menu, MenuProps } from "antd";
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-} from "@ant-design/icons";
+import { Layout, Menu } from "antd";
 import styles from "./index.module.css";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
 import PublishPage from "./PublishPage";
 import IntroPage from "./IntroPage";
 import ArticlePage from "./ArticlePage";
@@ -14,27 +9,6 @@ import LabelPage from "./LabelPage";
 
 const { Sider } = Layout;
 
-const items2: MenuProps["items"] = [
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-].map((icon, index) => {
-  const key = String(index + 1);
-
-  return {
-    key: `sub${key}`,
-    icon: React.createElement(icon),
-    label: `subnav ${key}`,
-
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: `option${subKey}`,
-      };
-    }),
-  };
-});
 const AdminPage: React.FC = () => {
   const location = useLocation();
   const siderLabel = location.pathname.split("/")[2];
@@ -44,9 +18,8 @@ const AdminPage: React.FC = () => {
       <Sider width={180} className={styles.sider} theme="light">
         <Menu
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["articles"]}
           selectedKeys={[siderLabel]}
-          defaultOpenKeys={["sub1"]}
           style={{ height: "100%", borderRight: 0 }}
         >
           <Menu.Item key="articles">
@@ -65,6 +38,7 @@ const AdminPage: React.FC = () => {
       </Sider>
       <div className={styles.innerCard}>
         <Routes>
+          <Route path="/" element={<Navigate to="/admin/articles" replace />} />
           <Route path="/publish" element={<PublishPage />} />
           <Route path="/intro" element={<IntroPage />} />
           <Route path="/articles" element={<ArticlePage />} />
