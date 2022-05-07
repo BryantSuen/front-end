@@ -20,7 +20,7 @@ const LoginPage: React.FC = () => {
       if (response.status === 200 && response.data.token) {
         localStorage.setItem("token", response.data.token);
         message.success("login success");
-        navigate("/admin");
+        navigate("/admin", { replace: true });
       } else {
         console.log("error!");
         form.resetFields();
