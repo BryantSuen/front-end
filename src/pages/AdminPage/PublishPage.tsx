@@ -1,21 +1,44 @@
 import React, { useState } from "react";
-import { Breadcrumb, Input, Button, Form, Row, Modal } from "antd";
+import { Breadcrumb, Input, Button, Form, Row, Modal, message } from "antd";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
+import axios from "axios";
+
+const { confirm } = Modal;
 
 const PublishPage: React.FC = () => {
   interface FormData {
     title: string;
     content: string;
-    lables: string;
+    description: string;
   }
   const [form] = Form.useForm<FormData>();
   const [preview, setPreview] = useState(false);
 
   const onFormFinish = (values: FormData) => {
-    console.log(values);
+    confirm({
+      title: "Do you Want to Publish the article?",
+      icon: <ExclamationCircleOutlined />,
+      onOk: async () => {
+        try {
+          await axios.post(`/articles`, {
+            title: values.title,
+            description: values.description,
+            content: values.content,
+          });
+          message.success("publish success");
+        } catch (err) {
+          message.error("publish failed");
+          console.log(err);
+        }
+      },
+      onCancel() {
+        console.log("Cancel");
+      },
+    });
   };
 
   return (
@@ -47,12 +70,12 @@ const PublishPage: React.FC = () => {
             <Input placeholder="Input title" />
           </Form.Item>
 
-          <Form.Item name="content" label="Content (markdown format)">
-            <Input.TextArea rows={8} placeholder="Input content" />
+          <Form.Item name="description" label="Description">
+            <Input.TextArea rows={2} placeholder="Input description" />
           </Form.Item>
 
-          <Form.Item name="labels" label="Labels">
-            <Input placeholder="Input labels" />
+          <Form.Item name="content" label="Content (markdown format)">
+            <Input.TextArea rows={8} placeholder="Input content" />
           </Form.Item>
 
           <Row>
