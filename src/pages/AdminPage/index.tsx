@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout, Menu } from "antd";
+import { BookOutlined, EditOutlined, CoffeeOutlined } from "@ant-design/icons";
 import styles from "./index.module.css";
 import { Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
 import PublishPage from "./PublishPage";
@@ -22,13 +23,22 @@ const AdminPage: React.FC = () => {
           style={{ height: "100%", borderRight: 0 }}
         >
           <Menu.Item key="articles">
-            <Link to="/admin/articles">article</Link>
+            <Link to="/admin/articles">
+              <BookOutlined />
+              article
+            </Link>
           </Menu.Item>
           <Menu.Item key="publish">
-            <Link to="/admin/publish">publish</Link>
+            <Link to="/admin/publish">
+              <EditOutlined />
+              publish
+            </Link>
           </Menu.Item>
           <Menu.Item key="intro">
-            <Link to="/admin/intro">intro</Link>
+            <Link to="/admin/intro">
+              <CoffeeOutlined />
+              intro
+            </Link>
           </Menu.Item>
         </Menu>
       </Sider>

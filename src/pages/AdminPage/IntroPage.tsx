@@ -18,7 +18,7 @@ const IntroPage: React.FC = () => {
 
   const onFormFinish = (values: FormData) => {
     confirm({
-      title: "Do you Want to Updata the introductions?",
+      title: "Do you Want to Update the introductions?",
       icon: <ExclamationCircleOutlined />,
       onOk: async () => {
         try {
