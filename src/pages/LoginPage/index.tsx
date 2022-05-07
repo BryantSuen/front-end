@@ -1,10 +1,37 @@
 import React from "react";
 import styles from "./index.module.css";
-import { Card, Avatar, Form, Input, Button } from "antd";
+import { Card, Avatar, Form, Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import AvatarImg from "../../Assets/Images/pig.jpeg";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "antd/lib/form/Form";
 
 const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
+  const [form] = useForm();
+  const handleLogin = async (value: any) => {
+    console.log(process.env.NODE_ENV);
+    console.log("Trigger login");
+    try {
+      const body = { userName: value.username, password: value.password };
+      const response = await axios.post("/users/login", body);
+
+      if (response.status === 200 && response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        message.success("login success");
+        navigate("/admin");
+      } else {
+        console.log("error!");
+        form.resetFields();
+        message.error("login failed");
+      }
+    } catch (err) {
+      console.log(err);
+      form.resetFields();
+      message.error("login failed");
+    }
+  };
   return (
     <div className={styles.page}>
       <div className={styles.Card}>
@@ -18,7 +45,8 @@ const LoginPage: React.FC = () => {
             name="normal_login"
             className="login-form"
             initialValues={{ remember: true }}
-            onFinish={() => {}}
+            form={form}
+            onFinish={handleLogin}
             style={{ padding: "25px" }}
           >
             <Form.Item
