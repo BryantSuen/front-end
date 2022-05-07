@@ -39,7 +39,6 @@ const IntroPage: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      console.log("triggered")
       try {
         const result = await axios.get("/about");
         const about = result.data;
@@ -81,7 +80,7 @@ const IntroPage: React.FC = () => {
             name="content"
             label="Update Introduction (markdown format)"
           >
-            <Input.TextArea rows={8} placeholder="Input content" />
+            <Input.TextArea rows={12} placeholder="Input content" />
           </Form.Item>
 
           <Row>

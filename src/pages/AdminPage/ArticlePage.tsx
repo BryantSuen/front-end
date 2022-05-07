@@ -38,7 +38,6 @@ const ArticlePage = () => {
     try {
       const res = await axios.get(`/articles/${_id}`);
       const article: Article = res.data;
-      console.log(article);
       editArticleForm.setFieldsValue({
         _id: article._id,
         title: article.title,
@@ -93,6 +92,7 @@ const ArticlePage = () => {
             setArticleList(res.data);
             setLoading(false);
           } catch (err) {
+            setLoading(false)
             message.error("failed in loading");
             console.log(err);
           }
@@ -117,6 +117,7 @@ const ArticlePage = () => {
         setArticleList(res.data);
         setLoading(false);
       } catch (err) {
+        setLoading(false);
         message.error("failed in loading");
         console.log(err);
       }

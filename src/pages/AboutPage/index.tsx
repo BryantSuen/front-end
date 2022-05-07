@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
+import axios from "axios";
 import {
   Row,
   Col,
@@ -10,6 +14,7 @@ import {
   Breadcrumb,
   Modal,
   Button,
+  message,
 } from "antd";
 import {
   GithubOutlined,
@@ -22,11 +27,21 @@ import { Link } from "react-router-dom";
 
 const AboutPage: React.FC = () => {
   const [wx, setWx] = useState(false);
+  const [text, setText] = useState("");
   const handleWechat = () => setWx(true);
   const handleCloseWechat = () => setWx(false);
 
-  const text =
-    "# About Me\n Hi, I'm Bryantsuen, undergraduate in Tsinghua University.\n\n Electronic Engineering Department\n\n Let's make EE hard Again!";
+  useEffect(() => {
+    (async () => {
+      try {
+        const result = await axios.get("/about");
+        const about = result.data;
+        setText(about.content);
+      } catch (err) {
+        message.error("failed in loading");
+      }
+    })();
+  }, []);
   return (
     <div className={styles.page}>
       {/* <div className={styles.content}> */}
@@ -52,7 +67,12 @@ const AboutPage: React.FC = () => {
                 </Link>
               </Breadcrumb.Item>
             </Breadcrumb>
-            <ReactMarkdown>{text}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkMath]}
+              rehypePlugins={[rehypeKatex]}
+            >
+              {text}
+            </ReactMarkdown>
             <Divider />
             <div className={styles.calendar}>
               <Calendar fullscreen={false} />
@@ -73,7 +93,7 @@ const AboutPage: React.FC = () => {
             </a>
             <Divider />
             <span style={{ margin: "10px" }}>
-              <a href="https://github.com/BryantSuen" style={{color:'#000'}}>
+              <a href="https://github.com/BryantSuen" style={{ color: "#000" }}>
                 <GithubOutlined />
               </a>
             </span>
