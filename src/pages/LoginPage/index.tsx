@@ -21,6 +21,7 @@ const LoginPage: React.FC = () => {
         localStorage.setItem("token", response.data.token);
         message.success("login success");
         navigate("/admin", { replace: true });
+        window.location.reload();
       } else {
         console.log("error!");
         form.resetFields();
