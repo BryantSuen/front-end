@@ -22,6 +22,7 @@ const NavBar: React.FC = () => {
       cancelText: "No",
       onOk: async () => {
         localStorage.removeItem("token");
+        setLogoutVisible(false);
         message.success("logged out");
       },
       onCancel() {
