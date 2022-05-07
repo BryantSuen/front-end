@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Menu, Button, Modal, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   HomeOutlined,
   ExportOutlined,
@@ -13,6 +13,7 @@ import { getJwtPayload } from "../../utils/getJwtPayload";
 const { confirm } = Modal;
 const NavBar: React.FC = () => {
   const [logoutVisible, setLogoutVisible] = useState(false);
+  const navigate = useNavigate()
   const handleLogout = () => {
     confirm({
       title: `Are you sure to log out?`,
@@ -23,6 +24,7 @@ const NavBar: React.FC = () => {
       onOk: async () => {
         localStorage.removeItem("token");
         setLogoutVisible(false);
+        navigate("/login");
         message.success("logged out");
       },
       onCancel() {
