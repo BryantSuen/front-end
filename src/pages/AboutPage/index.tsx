@@ -75,7 +75,7 @@ const AboutPage: React.FC = () => {
               {text}
             </ReactMarkdown>
             <Divider />
-            <Image src={CatImage} width={"500px"} />
+            <Image src={CatImage} width={"80%"} />
             {/* <div className={styles.calendar}>
               <Calendar fullscreen={false} />
             </div> */}
