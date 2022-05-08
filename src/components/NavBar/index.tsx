@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Menu, Button, Modal, message } from "antd";
+import { Row, Col, Menu, Button, Modal, message, Avatar } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import {
   HomeOutlined,
@@ -13,7 +13,7 @@ import { getJwtPayload } from "../../utils/getJwtPayload";
 const { confirm } = Modal;
 const NavBar: React.FC = () => {
   const [logoutVisible, setLogoutVisible] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleLogout = () => {
     confirm({
       title: `Are you sure to log out?`,
@@ -46,7 +46,9 @@ const NavBar: React.FC = () => {
       <Row justify="center">
         <Col xs={20} sm={20} md={10} lg={12} xl={12}>
           <span className="nav-logo">
-            <Link to="/home">bs</Link>
+            <Link to="/home">
+              <Avatar src={process.env.PUBLIC_URL + "/logo512.png"} />
+            </Link>
           </span>
           <span className="nav-text">bryantsuen</span>
         </Col>
