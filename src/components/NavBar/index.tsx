@@ -6,6 +6,7 @@ import {
   ExportOutlined,
   ExclamationCircleOutlined,
   LogoutOutlined,
+  ControlOutlined,
 } from "@ant-design/icons";
 import "./index.css";
 import { getJwtPayload } from "../../utils/getJwtPayload";
@@ -72,6 +73,14 @@ const NavBar: React.FC = () => {
                 Overleaf
               </Link>
             </Menu.Item>
+            {logoutVisible ? (
+              <Menu.Item key="admin">
+                <Link to="/admin">
+                  <ControlOutlined />
+                  Admin
+                </Link>
+              </Menu.Item>
+            ) : null}
           </Menu>
         </Col>
         <Col span={3} push={2}>
