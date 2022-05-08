@@ -8,7 +8,7 @@ import axios from "axios";
 import {
   Row,
   Col,
-  Calendar,
+  Image,
   Avatar,
   Divider,
   Breadcrumb,
@@ -24,6 +24,7 @@ import {
 } from "@ant-design/icons";
 import AvatarImage from "../../Assets/Images/pig.jpeg";
 import { Link } from "react-router-dom";
+import CatImage from "../../Assets/Images/cat.jpg";
 
 const AboutPage: React.FC = () => {
   const [wx, setWx] = useState(false);
@@ -74,9 +75,10 @@ const AboutPage: React.FC = () => {
               {text}
             </ReactMarkdown>
             <Divider />
-            <div className={styles.calendar}>
+            <Image src={CatImage} width={"500px"} />
+            {/* <div className={styles.calendar}>
               <Calendar fullscreen={false} />
-            </div>
+            </div> */}
           </div>
         </Col>
         <Col className={styles.right_card} xs={0} sm={0} md={0} lg={4} xl={4}>
