@@ -8,7 +8,7 @@ import axios from "axios";
 
 axios.defaults.baseURL =
   process.env.NODE_ENV === "production"
-    ? "http://api.brerudike.com"
+    ? "https://api.brerudike.com"
     : "http://localhost:23333";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.interceptors.request.use((config: any) => {
