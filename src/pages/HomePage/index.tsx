@@ -3,8 +3,10 @@ import { Avatar, Typography, Button } from "antd";
 import AvatarImg from "../../Assets/Images/pig.jpeg";
 import styles from "./index.module.css";
 import { Link } from "react-router-dom";
+import { BookOutlined, GithubOutlined } from "@ant-design/icons";
+import { MinecraftOutlined } from "../../components/Icons";
 
-const { Title} = Typography;
+const { Title } = Typography;
 
 const HomePage: React.FC = () => {
   return (
@@ -26,26 +28,27 @@ const HomePage: React.FC = () => {
         </div>
 
         <div>
-          <a href="https://github.bryantsuen.com" style={{ margin: "0 20px" }}>
+          <a href="https://github.com/BryantSuen" style={{ margin: "0 20px" }}>
             <Button size="large" shape="round">
-              git
+              <GithubOutlined style={{ padding: "3px" }} />
+              Github
             </Button>
           </a>
 
-          <a href="overleaf.bryantsuen.com" style={{ margin: "0 20px" }}>
+          <a href="https://mc.brerudike.com" style={{ margin: "0 20px" }}>
             <Button size="large" shape="round">
-              overleaf
+              <MinecraftOutlined />
+              Minecraft
             </Button>
           </a>
 
           <Link to="/articles" style={{ margin: "0 20px" }}>
             <Button size="large" shape="round">
-              articles
+              <BookOutlined /> Articles
             </Button>
           </Link>
         </div>
       </div>
-
 
       {/* <div className={styles.footer}>
         <Paragraph>备案</Paragraph>

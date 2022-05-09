@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import "./index.css";
 import { getJwtPayload } from "../../utils/getJwtPayload";
+import { MinecraftOutlined } from "../Icons";
 
 const { confirm } = Modal;
 const NavBar: React.FC = () => {
@@ -57,21 +58,21 @@ const NavBar: React.FC = () => {
           <Menu mode="horizontal">
             <Menu.Item key="home">
               <Link to="/home">
-                <HomeOutlined />
+                <HomeOutlined style={{ padding: "3px" }} />
                 Home
               </Link>
             </Menu.Item>
             <Menu.Item key="git">
               <Link to="/git">
-                <ExportOutlined />
+                <ExportOutlined style={{ padding: "3px" }} />
                 Git
               </Link>
             </Menu.Item>
-            <Menu.Item key="overleaf">
-              <Link to="/overleaf">
-                <ExportOutlined />
-                Overleaf
-              </Link>
+            <Menu.Item key="minecraft">
+              <a href="https://mc.brerudike.com/home">
+                <MinecraftOutlined />
+                Minecraft
+              </a>
             </Menu.Item>
             {logoutVisible ? (
               <Menu.Item key="admin">
